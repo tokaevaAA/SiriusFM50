@@ -1,33 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdexcept>
+#include <cmath>
+
 #include "DiffusionGBM.h"
 #include "DiffusionCEV.h"
 #include "DiffusionOU.h"
 #include "DiffusionLipton.h"
 #include "DiffusionCIR.h"
 
+#include "IRProvider.h"
+#include "IRProviderConst.h"
+
+#include "MCEngine1D.h"
+#include "MCEngine1D.hpp"
 
 
-int main(){
 
+int main(void)
+{
   printf("Hello!\n");
-
-  SiriusFM::DiffusionGBM Df1=SiriusFM::DiffusionGBM(1,2);
-  Df1.pechat();
-
-  SiriusFM::DiffusionCEV Df2=SiriusFM::DiffusionCEV(3,4,5);
-  Df2.pechat();
-
-  SiriusFM::DiffusionOU Df3=SiriusFM::DiffusionOU(6,7,8);
-  Df3.pechat();
  
-  SiriusFM::DiffusionLipton Df4=SiriusFM::DiffusionLipton(9,10,11,12);
-  Df4.pechat();
-
-  SiriusFM::DiffusionCIR Df5=SiriusFM::DiffusionCIR(13,14,15);
-  Df5.pechat();
+  SiriusFM::IRProvider<SiriusFM::IRModeE::Const>  my_irprovider("interest_rates.txt");
+  my_irprovider.pechat();
 
   printf("Goodbuy!\n");
 
-  return 0;
 }
